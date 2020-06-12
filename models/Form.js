@@ -16,6 +16,7 @@ let formSchema = new Schema({
 function fieldsLimitValidator(vals) {
   return vals.length > 0;
 }
+
 const Form = mongoose.model("Form", formSchema);
 module.exports = Form;
 
