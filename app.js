@@ -3,6 +3,7 @@ const app = express();
 const db = require("./db")
 const Form = require("./models/Form")
 const FieldType = require("./models/FieldType")
+const UserForm = require("./models/UserForm")
 const port = 3000;
 
 app.get("/", (req, res) => res.send("Hello World!"));
