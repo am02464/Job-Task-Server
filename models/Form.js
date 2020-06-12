@@ -16,14 +16,15 @@ let formSchema = new Schema({
 function fieldsLimitValidator(vals) {
   return vals.length > 0;
 }
+
 const Form = mongoose.model("Form", formSchema);
 module.exports = Form;
 
-let form = new Form({
-  name: "0140",
-  fields:['5ee39cb8e4acad2da4165e30']
-});
+// let form = new Form({
+//   name: "0140",
+//   fields:['5ee39cb8e4acad2da4165e30']
+// });
 
-Form.find().populate('fields').exec((err, val)=>{
-  console.log(err, val.pop())
-})
+// Form.find().populate('fields').exec((err, val)=>{
+//   console.log(err, val.pop())
+// })
