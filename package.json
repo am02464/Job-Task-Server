@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/am02464/Job-Task-Server#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "mongoose": "^5.9.18"
   }
 }
