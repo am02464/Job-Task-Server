@@ -17,13 +17,3 @@ var typeSchema = new Schema({
 
 const FieldType = mongoose.model("FieldType", typeSchema);
 module.exports = FieldType;
-
-// let filedType = new FieldType({
-//   name : "Amount",
-//   type : validTypes[0]
-// })
-
-
-// filedType.save((err, val)=>{
-//   console.log(err, val)
-// })

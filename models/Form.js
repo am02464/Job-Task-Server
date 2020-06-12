@@ -1,5 +1,21 @@
 const mongoose = require("mongoose");
+
+const FieldType = require("./FieldType");
 const Schema = mongoose.Schema;
+
+
+let fieldsSchema = new Schema({
+  name: {
+    type: String,
+    required: true
+  },
+  field: {
+    type: Schema.Types.ObjectId,
+    ref: "FieldType",
+    required: true
+  }
+});
+
 
 let formSchema = new Schema({
   name: {
@@ -8,7 +24,7 @@ let formSchema = new Schema({
     required: true
   },
   fields: {
-    type: [{ type: Schema.Types.ObjectId, ref: "FieldType", required: true }],
+    type: [fieldsSchema],
     validate: [fieldsLimitValidator, "{PATH} Must have at least one field"]
   }
 });
@@ -20,15 +36,4 @@ function fieldsLimitValidator(vals) {
 const Form = mongoose.model("Form", formSchema);
 module.exports = Form;
 
-// let form = new Form({
-//   name: "01000022240",
-//   fields: ["5ee39cb8e4acad2da4165e80"]
-// });
 
-// Form.find().populate("fields").exec((err, val) => {
-//   console.log(err, val.pop());
-// });
-
-// form.save((err, val) => {
-//   console.log(err, val);
-// });

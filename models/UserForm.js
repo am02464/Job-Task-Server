@@ -3,6 +3,10 @@ const Form = require("./Form");
 const Schema = mongoose.Schema;
 
 let fieldsSchema = new Schema({
+  name: {
+    type: String,
+    required: true
+  },
   field: {
     type: Schema.Types.ObjectId,
     ref: "FieldType",
@@ -31,7 +35,7 @@ function fieldsLimitValidator(vals, some) {
   return vals.length > 0;
 }
 
-const UserForm = mongoose.model("userFormAtif", userFormSchema);
+const UserForm = mongoose.model("UserForm", userFormSchema);
 module.exports = UserForm;
 
 // let userForm = new UserForm({
@@ -42,3 +46,4 @@ module.exports = UserForm;
 // userForm.save((err, val) => {
 //   console.log(err, val);
 // });
+// // mongoose.connection.dropCollection("UserForm")
