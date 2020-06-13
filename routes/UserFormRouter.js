@@ -8,20 +8,6 @@ router.get("/", (req, res) => {
   });
 });
 
-router.get("/:deviceId/listforms", (req, res) => {
-  try {
-    userFormService.returnDeviceIdForms(req.params["deviceId"]).then((val) => {
-      console.log(val);
-      res.json({
-        status: "OK",
-        body: val,
-      });
-    });
-  } catch (e) {
-    console.log(e.message);
-  }
-});
-
 router.get("/:deviceId/:userFormId/", (req, res) => {
   try {
     userFormService
