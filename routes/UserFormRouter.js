@@ -10,15 +10,23 @@ router.get("/", (req, res) => {
 
 router.get("/listforms/:deviceId", (req, res) => 
 {    
-    userFormService[0](req.params["deviceId"]).then(val =>
-        {
-            console.log(val);
-            res.json(
-                {
-                    status: "OK",
-                    forms: val
-                })
-        })
+    try
+    {
+        userFormService.returnDeviceIdForms(req.params["deviceId"]).then(val =>
+            {
+                console.log(val);
+                res.json(
+                    {
+                        status: "OK",
+                        forms: val
+                    })
+            })
+    
+    }
+    catch(e)
+    {
+        console.log(e.message);
+    }
 })
 
 module.exports = router;

@@ -1,6 +1,8 @@
 const express = require("express");
 const router = express.Router();
-const formServive = require("../services/FormService");
+const formService = require("../services/FormService");
+const { route } = require("./UserFormRouter");
+const handleImmutable = require("mongoose/lib/helpers/schematype/handleImmutable");
 
 router.get("/", (req, res) => {
     res.json({
@@ -10,20 +12,33 @@ router.get("/", (req, res) => {
 
 router.post("/:id", (req, res) => {});
 
-router.get("/allforms", (req, res) => 
+router.get("/forms", (req, res) => 
 {
-    formServive[0]().then(val =>
-        {
-            console.log(val);
-            res.json(
-                {
-                    status: "OK",
-                    forms: val
-                })
-        })
+    try
+    {
+        formService.returnAllForms().then(val =>
+            {
+                console.log(val);
+                res.json(
+                    {
+                        status: "OK",
+                        forms: val
+                    })
+            })    
+    }
+    catch(e)
+    {
+        console.log(e.message);
+    }
 
 });
 
+
+
+router.post("/generate1040", (req,res) => 
+{
+
+})
 
 router.put("/", (req, res) => {});
 

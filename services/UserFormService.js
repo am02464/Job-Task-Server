@@ -8,5 +8,5 @@ async function returnDeviceIdForms(deviceId)
 }
 
 
-module.exports=[returnDeviceIdForms]
+module.exports={returnDeviceIdForms}
 
