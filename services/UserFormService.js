@@ -7,6 +7,10 @@ async function returnDeviceIdForms(deviceId)
     return userForms;
 }
 
+async function returnUserForm(deviceId, userFormId)
+{
+    let userForm = await UserForm.findOne().populate({ path: "form", model:"Form"}).populate({path: "fields.field"});
+    return userForm;
+}
 
-module.exports={returnDeviceIdForms}
-
+module.exports={returnDeviceIdForms, returnUserForm}

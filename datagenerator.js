@@ -78,16 +78,19 @@ async function generate() {
       //           name: "Total income",
       //           field: await types.find(t => t.type === "FLOAT")._id,
       //           value: "222"
+      //         },
+      //         {
+      //           name: "Total taxes paid",
+      //           field: await types.find(t => t.type === "FLOAT")._id,
+      //           value: "2020"
       //         }
+
       //       ]
       //     }
       //   ])
 
 
     let forms = await Form.find().populate({ path: "fields.field" });
-    console.log("\nForm\n", forms);
-    // let userForms = await UserForm.find({deviceId:  "12345"});
-    // console.log("\nUser Forms\n", userForms)
 
   } catch (err) {
     console.error("\nError :\n", err.message);
