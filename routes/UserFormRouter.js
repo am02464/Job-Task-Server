@@ -10,7 +10,6 @@ router.get("/", (req, res) => {
 
 router.get("/listforms/:deviceId", (req, res) => 
 {    
-    console.log('asdsadas')
     userFormService[0](req.params["deviceId"]).then(val =>
         {
             console.log(val);
