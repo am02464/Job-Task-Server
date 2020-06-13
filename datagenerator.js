@@ -66,12 +66,12 @@ async function generate() {
       }
     );
 
-      
+      // await UserForm.deleteMany({});      
       // await UserForm.create(
       //   [
       //     {
       //       deviceId: "12345",
-      //       form: "5ee404cd1a80610388668fcc",
+      //       form: "5ee404cd1a80610388668fca",
       //       fields: 
       //       [
       //         {
@@ -85,9 +85,9 @@ async function generate() {
 
 
     let forms = await Form.find().populate({ path: "fields.field" });
-    console.log("\nForm\n", forms.pop().fields);
-    let userForms = await UserForm.find({deviceId:  "12345"});
-    console.log("\nUser Forms\n", userForms)
+    console.log("\nForm\n", forms);
+    // let userForms = await UserForm.find({deviceId:  "12345"});
+    // console.log("\nUser Forms\n", userForms)
 
   } catch (err) {
     console.error("\nError :\n", err.message);
