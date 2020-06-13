@@ -6,7 +6,7 @@ async function returnAllForms()
 {
     try
     {
-        let forms = await Form.find().populate({ path: "fields.field" });
+        let forms = await Form.find().populate();
         return forms;    
     }
     catch(e)
